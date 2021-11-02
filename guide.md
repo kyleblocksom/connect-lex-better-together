@@ -84,23 +84,23 @@ Import Your Amazon Lex Chatbot:
 
 5. Select MakePayment under Intents on the left menu:
 
-   a. Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
+   - Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
-   b. Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest.
+   - Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest.
 
 6. Select OpenAccount under Intents on the left menu: 
 
-   a. Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
+   - Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
-   b. Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest.
+   - Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest.
 
 7. Select ProvideAccountDetails under Intents on the left menu: 
 
-   a. Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
+   - Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
 8. Select VerifyIdentity under Intents on the left menu: 
 
-   a. Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
+   - Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
 9. Select Build to assemble your chatbot, then test your chatbot using the dialogue box. 
 
@@ -116,11 +116,11 @@ To associate your Amazon Lex chatbot with your Twilio programmable SMS endpoint,
 5. In the Channels section, select Twilio SMS.
 6. On the Twilio SMS page, provide the following information:
 
-   a. Channel name: LexTwilioAssociation
-   b. Select "aws/lex" from KMS key.
-   c. For Alias, select your bot alias.
-   d. For Authentication Token, enter the AUTH TOKEN for your Twilio account.
-   e. For Account SID, enter the ACCOUNT SID for your Twilio account.
+   - Channel name: LexTwilioAssociation
+   - Select "aws/lex" from KMS key.
+   - For Alias, select your bot alias.
+   - For Authentication Token, enter the AUTH TOKEN for your Twilio account.
+   - For Account SID, enter the ACCOUNT SID for your Twilio account.
 
 7. Select Activate.
 
