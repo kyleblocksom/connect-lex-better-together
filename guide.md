@@ -17,9 +17,9 @@
  
 #### 2-Part Omnichannel Deployment Process:
 	 
-##### 1.	Provision backend services through AWS CloudFormation (AWS Amplify, Amazon DynamoDB, Amazon Kendra, AWS Lambda, and Amazon S3).
+###### 	1.	Provision backend services through AWS CloudFormation (AWS Amplify, Amazon DynamoDB, Amazon Kendra, AWS Lambda, and Amazon S3).
 
-##### 2.	Import your Amazon Lex chatbot then integrate with Amazon Connect, Twilio SMS, and Slack.
+###### 	2.	Import your Amazon Lex chatbot then integrate with Amazon Connect, Twilio SMS, and Slack.
 
 #### The below architecture diagram illustrates your resultant solution architecture following the above deployment process:
 
@@ -30,27 +30,27 @@
 
 #### What are you deploying?
 
-##### In Part-1 of your application architecture, you will build an Amazon Lex chatbot that understands customers' speech and text inputs. Your chatbot is embedded within a website created using AWS Amplify which is connected to the source repository that hosts our HTML, JavaScript, and CSS code. Data about available plans and users’ chosen plans are persisted in Amazon DynamoDB. AWS Lambda functions are triggered by Amazon Lex to execute business logic and interact with the database layer to query pertinent customer data and fulfill customer requests. Amazon Kendra also allows our chatbot to query against an indexed FAQ document so customers and call center agents can quickly find answers. You can also connect the Amazon Lex chatbot with Twilio SMS and Amazon Connect, which allows users to interact with your chatbot over SMS text messages and call your customer service number and interact with Amazon Lex’s Interactive Voice Response (IVR).
+###### In Part-1 of your application architecture, you will build an Amazon Lex chatbot that understands customers' speech and text inputs. Your chatbot is embedded within a website created using AWS Amplify which is connected to the source repository that hosts our HTML, JavaScript, and CSS code. Data about available plans and users’ chosen plans are persisted in Amazon DynamoDB. AWS Lambda functions are triggered by Amazon Lex to execute business logic and interact with the database layer to query pertinent customer data and fulfill customer requests. Amazon Kendra also allows our chatbot to query against an indexed FAQ document so customers and call center agents can quickly find answers. You can also connect the Amazon Lex chatbot with Twilio SMS and Amazon Connect, which allows users to interact with your chatbot over SMS text messages and call your customer service number and interact with Amazon Lex’s Interactive Voice Response (IVR).
 
 Region	Region Code	Launch
 US East (N. Virginia)	us-east-1	omni-lex.yaml
 
 #### AWS CloudFormation Launch Instructions:
 
-1.	Select the Launch Stack link above.
-2.	Select Next on the Specify template page.
-3.	Enter your <Stack-name> on the Specify stack details page and select Next.
-4.	On the Configure stack options page, leave all the defaults and click Next.
-5.	On the Review page, check all the boxes to acknowledge that CloudFormation will create IAM resources.
-6.	Select Create stack.
+###### 	1.	Select the Launch Stack link above.
+###### 	2.	Select Next on the Specify template page.
+###### 	3.	Enter your <Stack-name> on the Specify stack details page and select Next.
+###### 	4.	On the Configure stack options page, leave all the defaults and click Next.
+###### 	5.	On the Review page, check all the boxes to acknowledge that CloudFormation will create IAM resources.
+###### 	6.	Select Create stack.
 
-##### Allow CloudFormation to launch your resources in the background; you do not need to wait for it to finish before proceeding to Deployment Part-2.
+###### Allow CloudFormation to launch your resources in the background; you do not need to wait for it to finish before proceeding to Deployment Part-2.
 
 #### Deployment Part-2: Creating your Amazon Lex bot with Amazon Connect, Twilio SMS, and Slack integration through step-by-step guidance.
 
 #### Amazon Lex Concepts:
 
-- **Intent:** ##### An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create a bot that orders pizza and drinks. For each intent, you provide the following required information:
+- ###### **Intent:** An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create a bot that orders pizza and drinks. For each intent, you provide the following required information:
  
 - **Intent name:** A descriptive name for the intent. For example, OrderPizza. Intent names must be unique within your account.
 
