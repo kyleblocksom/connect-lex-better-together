@@ -174,7 +174,13 @@ To associate your Amazon Lex chatbot with your Slack Application, we need to act
 
 ###### Once you navigate to the Mortgage Lender/Retail Bank’s customer sentiment analysis dashboard, you will see the below home screen with a sortable list of your Amazon Connect call recordings and Amazon Lex transaction logs. Selecting one of the call recordings or transaction logs leads you to the subsequent screenshot which shows the interaction metadata, language used, average and trending caller and agent sentiment, call or chat duration, and a graph of caller and agent sentiment throughout the interaction. Let’s get started with our simple 3-step AWS CloudFormation deployment process!
 
-3-Part Customer Sentiment Analysis Deployment Process:
+#### Amazon QuickSight dashboard to list Amazon Lex transaction logs and Amazon Connect call recordings transcribed using Amazon Transcribe:
+<img width="1792" alt="Screen Shot 2021-11-02 at 9 52 47 AM" src="https://user-images.githubusercontent.com/73256380/139910078-2b471e60-8ad1-42de-8858-44d347399ba9.png">
+
+#### Amazon QuickSight dashboard to present Amazon Comprehend's customer sentiment analysis after transaction logs and call recordings are transcribed through AWS Step Functions workflow:
+<img width="1792" alt="Screen Shot 2021-11-02 at 9 53 06 AM" src="https://user-images.githubusercontent.com/73256380/139910092-c93c34ac-b56f-47c1-b17c-2d3cc39c0ac0.png">
+
+#### 3-Part Customer Sentiment Analysis Deployment Process:
 	 
 1.	Create AWS Systems Manager Parameter Store by deploying AWS CloudFormation template and specifying AWS CloudFormation parameter values. 
 2.	Provision backend services by installing code dependencies, creating AWS Lambda layer, then packaging and deploying AWS CloudFormation template ().
@@ -182,28 +188,29 @@ To associate your Amazon Lex chatbot with your Slack Application, we need to act
 
 The below architecture diagram illustrates your resultant solution following the above deployment:
 
- 
+ <img width="1792" alt="Screen Shot 2021-11-02 at 12 22 23 PM" src="https://user-images.githubusercontent.com/73256380/139932191-8c6bc042-9596-4b5f-905e-ed01c4ee579a.png">
 
-Deployment Part-1: Create AWS Systems Manager Parameter Store by deploying AWS CloudFormation template and specifying AWS CloudFormation parameter values. 
+#### Deployment Part-1: Create AWS Systems Manager Parameter Store by deploying AWS CloudFormation template and specifying AWS CloudFormation parameter values. 
 
-What are you deploying?
-Part-1 of your customer sentiment analysis backend provisions AWS Systems Manager Parameter Store values that will used in subsequent deployment steps to identify variable like your call recording S3 Bucket name and the name of the S3 Bucket that will hold your transcribed call recordings.
+#### What are you deploying?
+
+###### Part-1 of your customer sentiment analysis backend provisions AWS Systems Manager Parameter Store values that will used in subsequent deployment steps to identify variable like your call recording S3 Bucket name and the name of the S3 Bucket that will hold your transcribed call recordings.
 
 | **Region** | **Region Code** | **Launch** |
 | --- | --- | --- |
 | US East (N. Virginia) | us-east-1 | cfn/ssm.template |
 | --- | --- | --- |
 
-CloudFormation Launch Instructions (expand for details)
+CloudFormation Launch Instructions:
 
-1.	Select the Launch Stack link above.
-2.	Select Next on the Specify template page.
-3.	Enter your <Stack-name> on the Specify stack details page and select Next.
-4.	On the Configure stack options page, leave all the defaults and click Next.
+1.	Select the **Launch Stack** link above.
+2.	Select **Next** on the Specify template page.
+3.	Enter _\<YOUR_STACK_NAME-\>_ on the Specify stack details page and select Next.
+4.	On the Configure stack options page, leave all the defaults and select **Next**.
 5.	On the Review page, check all the boxes to acknowledge that CloudFormation will create IAM resources.
-6.	Select Create stack.
+6.	Select **Create stack**.
 
-Wait for the CREATE_COMPLETE status on your CloudFormation stack; you need to wait for it to finish before proceeding to Deployment Part-2.
+Wait for the _CREATE_COMPLETE_ status on your CloudFormation stack; you need to wait for it to finish before proceeding to Deployment Part-2.
 
 | **Key** | **Default Value** | **Description** |
 | --- | --- | --- |
@@ -247,7 +254,7 @@ cd src/pca
 pip install -t . -r requirements.txt
 ```
 	
-2.	Upload ffmpeg.zip file to the S3 bucket defined in the configuration parameter SupportFilesBucketName as specified in Part-1 of your customer sentiment analysis deployment.
+2.	Upload _ffmpeg.zip_ file to the S3 bucket defined in the configuration parameter _SupportFilesBucketName_ as specified in Part-1 of your customer sentiment analysis deployment.
 3.	Using the AWS CLI, enter the following to package and deploy your AWS CloudFormation template, replacing the below values:
 
 | **Name** | **Value** |
@@ -267,7 +274,7 @@ aws cloudformation deploy --template-file packaged.template \
   --capabilities CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND 
 ```
 	
-Deployment Part-3: Provision frontend customer sentiment analysis user-interface by installing code dependencies then packaging and deploying CloudFormation template.
+#### Deployment Part-3: Provision frontend customer sentiment analysis user-interface by installing code dependencies then packaging and deploying CloudFormation template.
 
 1.	Install code dependencies:
 
@@ -299,7 +306,7 @@ aws cloudformation deploy \
 
 3. Add users to Cognito by navigating to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home?region=us-east-1) and locating the User Pool that was deployed by AWS CloudFormation in the previous step. Administrators will use these logins to access your customer sentiment analysis dashboard.
 
-   - Go to Users and Groups.
+   - Go to **Users and Groups**.
    - Add users as required.
 
 Your implementation is complete! You successfully deployed and configured the below architecture:
