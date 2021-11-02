@@ -78,8 +78,6 @@ Import Your Amazon Lex Chatbot:
 3.	Select the newly created OmniLex under Bots.
 4.	Select FAQ under Intents on the left menu and ensure the Lex-Kendra-Index is selected under Amazon Kendra query. Also, ensure your Response section matches the below:
 	
-![1](https://user-images.githubusercontent.com/73256380/139917842-a24df34c-8a7e-4229-8c0d-5008e5508473.png)
-	
 <img width="573" alt="Screen Shot 2021-11-02 at 10 46 47 AM" src="https://user-images.githubusercontent.com/73256380/139918404-c890060d-9ebb-43e8-aeeb-09b5fc79484b.png">
 
 5. Select MakePayment under Intents on the left menu:
