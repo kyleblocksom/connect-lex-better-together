@@ -17,9 +17,10 @@
  
 #### 2-Part Omnichannel Deployment Process:
 	 
- 1.	Provision backend services through AWS CloudFormation (AWS Amplify, Amazon DynamoDB, Amazon Kendra, AWS Lambda, and Amazon S3).
+ 1. Provision backend services through AWS CloudFormation 
+ > (AWS Amplify, Amazon DynamoDB, Amazon Kendra, AWS Lambda, and Amazon S3).
 
- 2.	Import your Amazon Lex chatbot then integrate with Amazon Connect, Twilio SMS, and Slack.
+ 2. Import your Amazon Lex chatbot then integrate with Amazon Connect, Twilio SMS, and Slack.
 
 #### The below architecture diagram illustrates your resultant solution architecture following the above deployment process:
 
@@ -39,12 +40,12 @@
 
 #### AWS CloudFormation Launch Instructions:
 
- 1.	Select the Launch Stack link above.
- 2.	Select Next on the Specify template page.
- 3.	Enter your <Stack-name> on the Specify stack details page and select Next.
- 4.	On the Configure stack options page, leave all the defaults and click Next.
+ 1.	Select the **Launch Stack** link above.
+ 2.	Select **Next** on the Specify template page.
+ 3.	Enter your \<STACK_NAME\> on the Specify stack details page and select **Next**.
+ 4.	On the Configure stack options page, leave all the defaults and select **Next**.
  5.	On the Review page, check all the boxes to acknowledge that CloudFormation will create IAM resources.
- 6.	Select Create stack.
+ 6.	Select **Create stack**.
 
 Allow CloudFormation to launch your resources in the background; you do not need to wait for it to finish before proceeding to Deployment Part-2.
 
@@ -54,7 +55,7 @@ Allow CloudFormation to launch your resources in the background; you do not need
 
 - ###### Intent: An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create a bot that orders pizza and drinks. For each intent, you provide the following required information:
   
-  - ###### Intent name: A descriptive name for the intent. For example, OrderPizza. Intent names must be unique within your account.
+  - ###### Intent name: A descriptive name for the intent. For example, _OrderPizza_. Intent names must be unique within your account.
 
   - ###### Sample utterances: How a user might convey the intent. For example, a user might say "Can I order a pizza please" or "I want to order a pizza".
 
@@ -62,9 +63,9 @@ Allow CloudFormation to launch your resources in the background; you do not need
  
   ###### In addition to custom intents such as ordering a pizza, Amazon Lex also provides built-in intents to quickly set up your bot. For more information, see [Built-in Intents and Slot Types](https://docs.aws.amazon.com/lex/latest/dg/howitworks-builtins.html).
  
-- ###### Slot: An intent can require zero or more slots or parameters. You add slots as part of the intent configuration. At runtime, Amazon Lex prompts the user for specific slot values. The user must provide values for all required slots before Amazon Lex can fulfill the intent. For example, the OrderPizza intent requires slots such as pizza size, crust type, and number of pizzas. In the intent configuration, you add these slots. For each slot, you provide slot type and a prompt for Amazon Lex to send to the client to elicit data from the user. A user can reply with a slot value that includes additional words, such as "large pizza please" or "let's stick with small." Amazon Lex can still understand the intended slot value.
+- ###### Slot: An intent can require zero or more slots or parameters. You add slots as part of the intent configuration. At runtime, Amazon Lex prompts the user for specific slot values. The user must provide values for all _required_ slots before Amazon Lex can fulfill the intent. For example, the _OrderPizza_ intent requires slots such as pizza size, crust type, and number of pizzas. In the intent configuration, you add these slots. For each slot, you provide slot type and a prompt for Amazon Lex to send to the client to elicit data from the user. A user can reply with a slot value that includes additional words, such as "large pizza please" or "let's stick with small." Amazon Lex can still understand the intended slot value.
  
-  - ###### Slot type: Each slot has a type. You can create your custom slot types or use built-in slot types. Each slot type must have a unique name within your account. For example, you might create and use the following slot types for the OrderPizza intent:
+  - ###### Slot type: Each slot has a type. You can create your custom slot types or use built-in slot types. Each slot type must have a unique name within your account. For example, you might create and use the following slot types for the _OrderPizza_ intent:
  
     - ###### Size: With enumeration values Small, Medium, and Large.
     - ###### Crust: With enumeration values Thick and Thin.
@@ -75,34 +76,36 @@ Allow CloudFormation to launch your resources in the background; you do not need
 
 Import Your Amazon Lex Chatbot:
 
-1.	Navigate to the Amazon Lex Console and select the Action dropdown before selecting Import.
-2.	Select Browse and choose the omni-lex.zip file.
-3.	Select the newly created OmniLex under Bots.
-4.	Select FAQ under Intents on the left menu and ensure the Lex-Kendra-Index is selected under Amazon Kendra query. Also, ensure your Response section matches the below:
+1.	Navigate to the [Amazon Lex Console](https://console.aws.amazon.com/lex/home?region=us-east-1) and select the **Action** dropdown before selecting **Import**.
+2.	Select **Browse** and choose the _omni-lex.zip_ file.
+3.	Select the newly created _OmniLex_ under **Bots**.
+4.	Select **FAQ** under **Intents** on the left menu and ensure the _Lex-Kendra-Index_ is selected under **Amazon Kendra query**. Also, ensure your **Response** section matches the below:
 	
 <img width="573" alt="Screen Shot 2021-11-02 at 10 46 47 AM" src="https://user-images.githubusercontent.com/73256380/139918404-c890060d-9ebb-43e8-aeeb-09b5fc79484b.png">
 
-5. Select MakePayment under Intents on the left menu:
+5. Select **MakePayment** under **Intents** on the left menu:
 
-   - Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
+   - Under **Lambda initialization and validation**, select **Initialization and validation code hook** then choose your Lambda function _<STACK_NAME>-OmniLexHandler_ from the dropdown. The version or alias should be set to _Latest_. Select **OK** when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
-   - Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest.
+   - Under Fulfillment, select **AWS Lambda function** then choose your Lambda function _<STACK_NAME>-OmniLexHandler_ from the dropdown with the version or alias set to _Latest_.
 
-6. Select OpenAccount under Intents on the left menu: 
+6. Select **OpenAccount** under **Intents** on the left menu: 
 
-   - Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
+   - Under **Lambda initialization and validation**, select **Initialization and validation code hook** then choose your Lambda function _<STACK_NAME>-OmniLexHandler_ from the dropdown. The version or alias should be set to _Latest_. Select **OK** when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
-   - Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest.
+   - Under **Fulfillment**, select **AWS Lambda function** then choose your Lambda function _<STACK_NAME>-OmniLexHandler_ from the dropdown with the version or alias set to _Latest_.
 
-7. Select ProvideAccountDetails under Intents on the left menu: 
+7. Select **ProvideAccountDetails** under **Intents** on the left menu: 
 
-   - Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
+   - Under **Lambda initialization and validation**, select **Initialization and validation code hook** then choose your Lambda function _<STACK_NAME>-OmniLexHandler_ from the dropdown. The version or alias should be set to _Latest_. Select **OK** when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
-8. Select VerifyIdentity under Intents on the left menu: 
+8. Select **VerifyIdentity** under **Intents** on the left menu: 
 
-   - Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
+   - Under **Fulfillment**, select **AWS Lambda function** then choose your Lambda function _<STACK_NAME>-OmniLexHandler_ from the dropdown with the version or alias set to _Latest_. Select **OK** when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
-9. Select Build to assemble your chatbot, then test your chatbot using the dialogue box. 
+9. Select **Build** to assemble your chatbot, then test your chatbot using the dialogue box.
+
+<img width="495" alt="Screen Shot 2021-11-02 at 11 50 30 AM" src="https://user-images.githubusercontent.com/73256380/139926946-05fdbc84-31ff-42fb-9742-fa1dca0cf568.png">
 
 #### Configure Twilio SMS Integration with Your Amazon Lex Chatbot:
 
@@ -111,7 +114,7 @@ Import Your Amazon Lex Chatbot:
 To associate your Amazon Lex chatbot with your Twilio programmable SMS endpoint, we need to activate bot channel association in the Amazon Lex console. When the bot channel association has been activated, Amazon Lex returns a callback URL that we can use for Twilio SMS integration.
 
 2. Sign in to the [Amazon Lex Console](https://console.aws.amazon.com/lex/).
-3. Select <your-bot-name>.
+3. Select _<your-bot-name>_.
 4. Navigate to the Channels tab.
 5. In the Channels section, select Twilio SMS.
 6. On the Twilio SMS page, provide the following information:
@@ -314,7 +317,7 @@ aws cloudformation deploy \
   --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND 
 ```
 
-3. Add users to Cognito by navigating to the Amazon Cognito console and locating the User Pool that was deployed by AWS CloudFormation in the previous step. Administrators will use these logins to access your customer sentiment analysis dashboard.
+3. Add users to Cognito by navigating to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home?region=us-east-1) and locating the User Pool that was deployed by AWS CloudFormation in the previous step. Administrators will use these logins to access your customer sentiment analysis dashboard.
 
    - Go to Users and Groups.
    - Add users as required.
