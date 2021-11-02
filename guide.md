@@ -256,13 +256,13 @@ link to download to source code folder
 
 1.	Install code dependencies:
 
-'''
+```
 cd src/trigger
 npm i
 
 cd src/pca
 pip install -t . -r requirements.txt
-'''
+```
 	
 2.	Upload ffmpeg.zip file to the S3 bucket defined in the configuration parameter SupportFilesBucketName as specified in Part-1 of your customer sentiment analysis deployment.
 3.	Using the AWS CLI, enter the following to package and deploy your AWS CloudFormation template, replacing the below values:
@@ -272,7 +272,7 @@ pip install -t . -r requirements.txt
 | \<YOUR_BUCKET\> | Name of the S3 bucket that will hold packaged AWS Lambda code during deployment |
 | \<STACK_NAME\> | Name of the CloudFormation stack |
 
-'''
+```
 cd cfn 
 
 aws cloudformation package --template-file main.template \
@@ -282,7 +282,7 @@ aws cloudformation package --template-file main.template \
 aws cloudformation deploy --template-file packaged.template \
   --stack-name <stack> \
   --capabilities CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND 
-'''
+```
 	
 Deployment Part-3: Provision frontend customer sentiment analysis user-interface by installing code dependencies then packaging and deploying CloudFormation template.
 
