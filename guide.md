@@ -227,73 +227,30 @@ Wait for the CREATE_COMPLETE status on your CloudFormation stack; you need to wa
 | BulkUploadBucket | omni-lex-sentiment-bulk-upload | S3 Bucket into which bulk call recordings and chat transaction logs can be dropped – AWS Step Functions execution required for processing. |
 | BulkUploadMaxDripRate | 50 | Maximum number of files that the bulk uploader will move to _ **InputBucketName** _per iteration. |
 | BulkUploadMaxTranscribeJobs | 250 | Maximum number of concurrent Amazon Transcribe jobs (executing or queuing) bulk upload will execute. |
-| ComprehendLanguages | en \| es | fr | de | it | pt |ar | hi | ja | ko | zh | zh-TW" | Languages supported by Amazon Comprehend&#39;s standard calls, separated by &quot;|&quot; |
-| ContentRedactionLanguages | en-US |
-Languages supported by Transcribe&#39;s Content Redaction feature, separated by &quot;|&quot;
- |
-| ConversationLocation | America/Toronto |
-Name of the timezone location for the call source - this [is the](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[**TZ database name**](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[from](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[https://en.wikipedia.or](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[g](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[/wiki/List](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[of](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[tz](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[time](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
- |
-| EntityRecognizerEndpoint | undefined |
-Name of the built custom entity recognizer for Amazon Comprehend (not including language suffix, e.g. -en). If one cannot be found then simple entity string matching is attempted.
- |
-| EntityStringMap | simple-entity-list.csv |
+| ComprehendLanguages | en \| es \| fr \| de \| it \| pt \| ar \| hi \| ja \| ko \| zh \| zh-TW | Languages supported by Amazon Comprehend&#39;s standard calls, separated by &quot;|&quot; |
+| ContentRedactionLanguages | en-US | Languages supported by Transcribe&#39;s Content Redaction feature, separated by &quot;|&quot; |
+| ConversationLocation | America/Los_Angeles | Name of the timezone location for the call source - this [is the](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[**TZ database name**](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[from](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[https://en.wikipedia.or](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[g](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[/wiki/List](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[of](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[tz](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[time](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) |
+| EntityRecognizerEndpoint | undefined | Name of the built custom entity recognizer for Amazon Comprehend (not including language suffix, e.g. -en). If one cannot be found then simple entity string matching is attempted. |
+| EntityStringMap | simple-entity-list.csv | Basename of a CSV file containing item/Entity maps forwhen not enough data is present for Comprehend Custom Entities (not including language suffix, e.g. -en). |
+| EntityThreshold | 0.5 | Confidence threshold where custom entity detection result is accepted. |
+| InputBucketAudioPlayback | mp3 | Folder that holds browser audio playback. 
+| InputBucketFailedTranscriptions | failedAudio | Folder that holds audio failed transcription files. |
+| InputBucketName | omni-lex-sentiment-source-audio | S3 Bucket into which audio files are delivered. |
+| InputBucketRawAudio | originalAudio | Folder that holds the raw call audio. |
+| MaxSpeakers | 2 | Maximum number of speakers that are expected on a call. |
+| MinSentimentNegative | 0.4 | Minimum sentiment level required to declare a phrase as having negative sentiment. |
+| MinSentimentPositive | 0.4 | Minimum sentiment level required to declare a phrase as having positive sentiment. |
+| OutputBucketName | omni-lex-sentiment-transcribe-output | S3 Bucket into which Amazon Transcribe output files are delivered. |
+| OutputBucketParsedResults | parsedFiles | Folder within the output S3 Bucket into which parsed results are written. |
+| SpeakerNames | Agent \| Caller | Default tags used for speaker names, separated by a &quot;|&quot; |
+| SpeakerSeparationType | Speaker | ![Shape3](RackMultipart20211102-4-mlg76b_html_f82412c3af3a0c37.gif)Separation mode for speakers, (speaker, channel, or auto). |
+| StepFunctionName | PostCallAnalyticsWorkflow | Name of AWS Step Functions sentiment analysis workflow. |
+| SupportFilesBucketName | omni-lex-sentiment-custom-source-files | S3 Bucket that hold supporting files, such as the file-based entity recognition mapping files. |
+| TranscribeAlternateLanguage | en-US | Allows files delivered from a non-standard S3 Bucket to be based upon this language. |
+| ![Shape4](RackMultipart20211102-4-mlg76b_html_dcea502fcb8261bb.gif)TranscribeLanguages | en-US | Language to be used for transcription - multiple entries separated by &quot;|&quot; will trigger Language Detection using those languages; if that fails for any reason then the first language in this list is used for transcription. |
+| VocabularyName | undefined | Name of the custom vocabulary to use for Amazon Transcribe (excluding language suffix). |
 
-Basename of a CSV file containing item/Entity maps forwhen not enough data is present for Comprehend Custom Entities (not including language suffix, e.g. -en).
- |
-| EntityThreshold | 0.5 |
-Confidence threshold where custom entity detection result is accepted.
- |
-| InputBucketAudioPlayback | mp3 |
-Folder that holds browser audio playback.
- |
-| InputBucketFailedTranscriptions | failedAudio |
-Folder that holds audio failed transcription files.
- |
-| InputBucketName | omni-lex-sentiment-source-audio |
-S3 Bucket into which audio files are delivered.
- |
-| InputBucketRawAudio | originalAudio |
-Folder that holds the raw call audio.
- |
-| MaxSpeakers | 2 |
-Maximum number of speakers that are expected on a call.
- |
-| MinSentimentNegative | 0.4 |
-Minimum sentiment level required to declare a phrase as having negative sentiment.
- |
-| MinSentimentPositive | 0.4 |
-Minimum sentiment level required to declare a phrase as having positive sentiment.
- |
-| OutputBucketName | omni-lex-sentiment-transcribe-output |
-S3 Bucket into which Amazon Transcribe output files are delivered.
- |
-| OutputBucketParsedResults | parsedFiles |
-Folder within the output S3 Bucket into which parsed results are written.
- |
-| SpeakerNames | Agent | Caller |
-Default tags used for speaker names, separated by a &quot;|&quot;
- |
-| SpeakerSeparationType | Speaker |
- ![Shape3](RackMultipart20211102-4-mlg76b_html_f82412c3af3a0c37.gif)Separation mode for speakers, (speaker, channel, or auto).
- |
-| StepFunctionName | PostCallAnalyticsWorkflow |
-Name of AWS Step Functions sentiment analysis workflow.
- |
-| SupportFilesBucketName | omni-lex-sentiment-custom-source-files |
-S3 Bucket that hold supporting files, such as the file-based entity recognition mapping files.
- |
-| TranscribeAlternateLanguage | en-US |
-Allows files delivered from a non-standard S3 Bucket to be based upon this language.
- |
-| ![Shape4](RackMultipart20211102-4-mlg76b_html_dcea502fcb8261bb.gif)TranscribeLanguages | en-US |
-Language to be used for transcription - multiple entries separated by &quot;|&quot; will trigger Language Detection using those languages; if that fails for any reason then the first language in this list is used for transcription.
- |
-| VocabularyName | undefined |
-Name of the custom vocabulary to use for Amazon Transcribe (excluding language suffix).
- |
-
-Deployment Part-2: Provision backend services by installing code dependencies, creating AWS Lambda layer, then packaging and deploying AWS CloudFormation template.
+#### Deployment Part-2: Provision backend services by installing code dependencies, creating AWS Lambda layer, then packaging and deploying AWS CloudFormation template.
 
 **link to download to source code folder**
 
