@@ -227,7 +227,7 @@ Wait for the CREATE_COMPLETE status on your CloudFormation stack; you need to wa
 | BulkUploadBucket | omni-lex-sentiment-bulk-upload | S3 Bucket into which bulk call recordings and chat transaction logs can be dropped – AWS Step Functions execution required for processing. |
 | BulkUploadMaxDripRate | 50 | Maximum number of files that the bulk uploader will move to _ **InputBucketName** _per iteration. |
 | BulkUploadMaxTranscribeJobs | 250 | Maximum number of concurrent Amazon Transcribe jobs (executing or queuing) bulk upload will execute. |
-| ComprehendLanguages | en | es | fr | de | it | pt |ar | hi | ja | ko | zh | zh-TW | Languages supported by Amazon Comprehend&#39;s standard calls, separated by &quot;|&quot; |
+| ComprehendLanguages | en /| es /| fr | de | it | pt |ar | hi | ja | ko | zh | zh-TW | Languages supported by Amazon Comprehend&#39;s standard calls, separated by &quot;|&quot; |
 | ContentRedactionLanguages | en-US |
 Languages supported by Transcribe&#39;s Content Redaction feature, separated by &quot;|&quot;
  |
