@@ -17,9 +17,9 @@
  
 #### 2-Part Omnichannel Deployment Process:
 	 
-##### 1.	Provision backend services through AWS CloudFormation (AWS Amplify, Amazon DynamoDB, Amazon Kendra, AWS Lambda, and Amazon S3).
+1.	Provision backend services through AWS CloudFormation (AWS Amplify, Amazon DynamoDB, Amazon Kendra, AWS Lambda, and Amazon S3).
 
-##### 2.	Import your Amazon Lex chatbot then integrate with Amazon Connect, Twilio SMS, and Slack.
+2.	Import your Amazon Lex chatbot then integrate with Amazon Connect, Twilio SMS, and Slack.
 
 The below architecture diagram illustrates your resultant solution architecture following the above deployment process:
 
@@ -36,12 +36,12 @@ The below architecture diagram illustrates your resultant solution architecture 
 
 **AWS CloudFormation Launch Instructions:**
 
-##### 1.	Select the Launch Stack link above.
-##### 2.	Select Next on the Specify template page.
-##### 3.	Enter your <Stack-name> on the Specify stack details page and select Next.
-##### 4.	On the Configure stack options page, leave all the defaults and click Next.
-##### 5.	On the Review page, check all the boxes to acknowledge that CloudFormation will create IAM resources.
-##### 6.	Select Create stack.
+1.	Select the Launch Stack link above.
+2.	Select Next on the Specify template page.
+3.	Enter your <Stack-name> on the Specify stack details page and select Next.
+4.	On the Configure stack options page, leave all the defaults and click Next.
+5.	On the Review page, check all the boxes to acknowledge that CloudFormation will create IAM resources.
+6.	Select Create stack.
 
 ##### Allow CloudFormation to launch your resources in the background; you do not need to wait for it to finish before proceeding to Deployment Part-2.
 
