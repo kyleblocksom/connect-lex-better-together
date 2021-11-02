@@ -277,10 +277,10 @@ cd cfn
 
 aws cloudformation package --template-file main.template \
    --output-template-file packaged.template \
-   --s3-bucket <bucket> 
+   --s3-bucket <YOUR_BUCKET> 
 
 aws cloudformation deploy --template-file packaged.template \
-  --stack-name <stack> \
+  --stack-name <YOUR_STACK> \
   --capabilities CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND 
 ```
 	
@@ -288,15 +288,19 @@ Deployment Part-3: Provision frontend customer sentiment analysis user-interface
 
 1.	Install code dependencies:
 
+```
 cd src/lambda
 npm install
-
+```
+	
 2.	Using the AWS CLI, enter the following to package and deploy your AWS CloudFormation template, replacing the below values:
 
-Name	Value
-<YOUR_BUCKET>	  Name of the S3 bucket in your account to store packaged AWS Lambda functions 
-<STACK_NAME>	  Name of the CloudFormation stack
+| **Name** | **Value** |
+| --- | --- |
+| \<YOUR_BUCKET\> | Name of the S3 bucket in your account to store packaged AWS Lambda functions |
+| \<STACK_NAME\> | Name of the CloudFormation stack |
 
+```
 cd cfn 
 
 aws cloudformation package \
@@ -308,11 +312,12 @@ aws cloudformation deploy \
   --template-file packaged.template \
   --stack-name <STACK_NAME> \
   --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND 
+```
 
-3.	Add users to Cognito by navigating to the Amazon Cognito console and locating the User Pool that was deployed by AWS CloudFormation in the previous step. Administrators will use these logins to access your customer sentiment analysis dashboard.
+3. Add users to Cognito by navigating to the Amazon Cognito console and locating the User Pool that was deployed by AWS CloudFormation in the previous step. Administrators will use these logins to access your customer sentiment analysis dashboard.
 
-a.	Go to Users and Groups.
-b.	Add users as required.
+   - Go to Users and Groups.
+   - Add users as required.
 
 Your implementation is complete! You successfully deployed and configured the below architecture:
 
