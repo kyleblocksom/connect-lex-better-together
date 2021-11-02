@@ -1,5 +1,6 @@
-Amazon Connect and Amazon Lex: Better Together
-Deliver Omnichannel Customer Experiences with Interactive Voice Response (IVR) Enabled Contact Centers and Natural Language Processing (NLP) Chatbots – All Backed by Customer Sentiment Analysis
+## Amazon Connect and Amazon Lex: Better Together
+
+###### Deliver Omnichannel Customer Experiences with Interactive Voice Response (IVR) Enabled Contact Centers and Natural Language Processing (NLP) Chatbots – All Backed by Customer Sentiment Analysis
 
  
 
@@ -13,11 +14,8 @@ Omnichannel User Interface Overview:
 
 Once you navigate to the Mortgage Lender/Retail Bank’s AWS Amplify-powered website, you will see the below home screen with your Amazon Lex chatbot embedded within the bottom-right of your screen. The Amazon Lex chatbot then prompts the user for their 4-digit PIN before beginning to fulfill user intents. Let’s get started by building our Amazon Lex chatbot! 
 
+
  
-
-
-
-
 2-Part Omnichannel Deployment Process:
 	 
 1.	Provision backend services through AWS CloudFormation (AWS Amplify, Amazon DynamoDB, Amazon Kendra, AWS Lambda, and Amazon S3).
