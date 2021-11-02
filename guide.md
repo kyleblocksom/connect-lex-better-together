@@ -54,22 +54,22 @@ Allow CloudFormation to launch your resources in the background; you do not need
  
   - ###### Intent name: A descriptive name for the intent. For example, OrderPizza. Intent names must be unique within your account.
 
-- **Sample utterances:** How a user might convey the intent. For example, a user might say "Can I order a pizza please" or "I want to order a pizza".
+  - ###### Sample utterances: How a user might convey the intent. For example, a user might say "Can I order a pizza please" or "I want to order a pizza".
 
-- **How to fulfill the intent:** How you want to fulfill the intent after the user provides the necessary information (for example, place order with a local pizza shop). We recommend that you create a Lambda function to fulfill the intent. You can optionally configure the intent so Amazon Lex simply returns the information back to the client application to do the necessary fulfillment.
+  - ###### How to fulfill the intent: How you want to fulfill the intent after the user provides the necessary information (for example, place order with a local pizza shop). We recommend that you create a Lambda function to fulfill the intent. You can optionally configure the intent so Amazon Lex simply returns the information back to the client application to do the necessary fulfillment.
  
-In addition to custom intents such as ordering a pizza, Amazon Lex also provides built-in intents to quickly set up your bot. For more information, see Built-in Intents and Slot Types.
+  ###### In addition to custom intents such as ordering a pizza, Amazon Lex also provides built-in intents to quickly set up your bot. For more information, see Built-in Intents and Slot Types.
  
-o	Slot: An intent can require zero or more slots or parameters. You add slots as part of the intent configuration. At runtime, Amazon Lex prompts the user for specific slot values. The user must provide values for all required slots before Amazon Lex can fulfill the intent. For example, the OrderPizza intent requires slots such as pizza size, crust type, and number of pizzas. In the intent configuration, you add these slots. For each slot, you provide slot type and a prompt for Amazon Lex to send to the client to elicit data from the user. A user can reply with a slot value that includes additional words, such as "large pizza please" or "let's stick with small." Amazon Lex can still understand the intended slot value.
+- ###### Slot: An intent can require zero or more slots or parameters. You add slots as part of the intent configuration. At runtime, Amazon Lex prompts the user for specific slot values. The user must provide values for all required slots before Amazon Lex can fulfill the intent. For example, the OrderPizza intent requires slots such as pizza size, crust type, and number of pizzas. In the intent configuration, you add these slots. For each slot, you provide slot type and a prompt for Amazon Lex to send to the client to elicit data from the user. A user can reply with a slot value that includes additional words, such as "large pizza please" or "let's stick with small." Amazon Lex can still understand the intended slot value.
  
-o	Slot type: Each slot has a type. You can create your custom slot types or use built-in slot types. Each slot type must have a unique name within your account. For example, you might create and use the following slot types for the OrderPizza intent:
+  - ###### Slot type: Each slot has a type. You can create your custom slot types or use built-in slot types. Each slot type must have a unique name within your account. For example, you might create and use the following slot types for the OrderPizza intent:
  
-	Size: With enumeration values Small, Medium, and Large.
-	Crust: With enumeration values Thick and Thin.
+    - ###### Size: With enumeration values Small, Medium, and Large.
+    - ###### Crust: With enumeration values Thick and Thin.
 
-Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered. For more information, see Built-in Intents and Slot Types.
+  ###### Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered. For more information, see Built-in Intents and Slot Types.
 
-** Amazon Lex Implementation: **
+#### Amazon Lex Implementation:
 
 Import Your Amazon Lex Chatbot:
 
@@ -80,9 +80,9 @@ Import Your Amazon Lex Chatbot:
 
  
 
-5.	Select MakePayment under Intents on the left menu:
+5. Select MakePayment under Intents on the left menu:
 
-a.	Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
+  a. Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
 b.	Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest.
 
