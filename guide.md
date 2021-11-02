@@ -35,9 +35,9 @@
 Region	Region Code	Launch
 US East (N. Virginia)	us-east-1	omni-lex.yaml
 
-#### AWS CloudFormation Launch Instructions:**
+#### AWS CloudFormation Launch Instructions:
 
-1.	##### Select the Launch Stack link above.
+1.	Select the Launch Stack link above.
 2.	Select Next on the Specify template page.
 3.	Enter your <Stack-name> on the Specify stack details page and select Next.
 4.	On the Configure stack options page, leave all the defaults and click Next.
@@ -48,9 +48,9 @@ US East (N. Virginia)	us-east-1	omni-lex.yaml
 
 #### Deployment Part-2: Creating your Amazon Lex bot with Amazon Connect, Twilio SMS, and Slack integration through step-by-step guidance.
 
-**Amazon Lex Concepts:**
+#### Amazon Lex Concepts:
 
-- **Intent:** An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create a bot that orders pizza and drinks. For each intent, you provide the following required information:
+- **Intent:** ##### An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create a bot that orders pizza and drinks. For each intent, you provide the following required information:
  
 - **Intent name:** A descriptive name for the intent. For example, OrderPizza. Intent names must be unique within your account.
 
