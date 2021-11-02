@@ -52,7 +52,7 @@ Allow CloudFormation to launch your resources in the background; you do not need
 
 #### Amazon Lex Concepts:
 
-- ###### **Intent**: An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create a bot that orders pizza and drinks. For each intent, you provide the following required information:
+- ###### Intent: An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create a bot that orders pizza and drinks. For each intent, you provide the following required information:
   
   - ###### Intent name: A descriptive name for the intent. For example, OrderPizza. Intent names must be unique within your account.
 
@@ -60,7 +60,7 @@ Allow CloudFormation to launch your resources in the background; you do not need
 
   - ###### How to fulfill the intent: How you want to fulfill the intent after the user provides the necessary information (for example, place order with a local pizza shop). We recommend that you create a Lambda function to fulfill the intent. You can optionally configure the intent so Amazon Lex simply returns the information back to the client application to do the necessary fulfillment.
  
-  ###### In addition to custom intents such as ordering a pizza, Amazon Lex also provides built-in intents to quickly set up your bot. For more information, see Built-in Intents and Slot Types.
+  ###### In addition to custom intents such as ordering a pizza, Amazon Lex also provides built-in intents to quickly set up your bot. For more information, see [Built-in Intents and Slot Types](https://docs.aws.amazon.com/lex/latest/dg/howitworks-builtins.html).
  
 - ###### Slot: An intent can require zero or more slots or parameters. You add slots as part of the intent configuration. At runtime, Amazon Lex prompts the user for specific slot values. The user must provide values for all required slots before Amazon Lex can fulfill the intent. For example, the OrderPizza intent requires slots such as pizza size, crust type, and number of pizzas. In the intent configuration, you add these slots. For each slot, you provide slot type and a prompt for Amazon Lex to send to the client to elicit data from the user. A user can reply with a slot value that includes additional words, such as "large pizza please" or "let's stick with small." Amazon Lex can still understand the intended slot value.
  
@@ -69,7 +69,7 @@ Allow CloudFormation to launch your resources in the background; you do not need
     - ###### Size: With enumeration values Small, Medium, and Large.
     - ###### Crust: With enumeration values Thick and Thin.
 
-  ###### Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered. For more information, see Built-in Intents and Slot Types.
+  ###### Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered. For more information, see [Built-in Intents and Slot Types](https://docs.aws.amazon.com/lex/latest/dg/howitworks-builtins.html).
 
 #### Amazon Lex Implementation:
 
@@ -106,11 +106,11 @@ Import Your Amazon Lex Chatbot:
 
 #### Configure Twilio SMS Integration with Your Amazon Lex Chatbot:
 
-1. Create Twilio SMS Account.
+1. [Create Twilio SMS Account](https://www.twilio.com/console).
 
 To associate your Amazon Lex chatbot with your Twilio programmable SMS endpoint, we need to activate bot channel association in the Amazon Lex console. When the bot channel association has been activated, Amazon Lex returns a callback URL that we can use for Twilio SMS integration.
 
-2. Sign in to the Amazon Lex Console.
+2. Sign in to the [Amazon Lex Console](https://console.aws.amazon.com/lex/).
 3. Select <your-bot-name>.
 4. Navigate to the Channels tab.
 5. In the Channels section, select Twilio SMS.
@@ -126,7 +126,7 @@ To associate your Amazon Lex chatbot with your Twilio programmable SMS endpoint,
 
 The console creates the bot channel association and returns a Callback URL - Record this URL.
 
-8. On the Twilio Console, navigate to Programmable Messaging.
+8. On the [Twilio Console](https://www.twilio.com/console), navigate to Programmable Messaging.
 9. Select Messaging Services.
 10. Enter your Amazon Lex generated Callback URL into the Request URL field:
 11. Enter your Twilio-provided SMS number into the Sender Pool:
@@ -162,11 +162,11 @@ The console creates the bot channel association and returns a Callback URL - Rec
 
 Configure Slack Integration with Your Amazon Lex Chatbot:
 
-1.	Sign Up for Slack and Create Slack Team. 
+1.	[Sign Up for Slack and Create Slack Team](https://slack.com/help/articles/212675257-Join-a-Slack-workspace). 
 
 To associate your Amazon Lex chatbot with your Slack Application, we need to activate bot channel association in the Amazon Lex console. When the bot channel association has been activated, Amazon Lex returns a callback URL that we can use for Slack Application integration.
 
-2.	Sign in to the Amazon Lex Console.
+2.	Sign in to the [Amazon Lex Console](https://console.aws.amazon.com/lex/).
 3.	Select <your-bot-name>.
 4.	Navigate to the Channels tab.
 5.	In the Channels section, select Twilio SMS.
@@ -205,8 +205,11 @@ Deployment Part-1: Create AWS Systems Manager Parameter Store by deploying AWS C
 
 What are you deploying?
 Part-1 of your customer sentiment analysis backend provisions AWS Systems Manager Parameter Store values that will used in subsequent deployment steps to identify variable like your call recording S3 Bucket name and the name of the S3 Bucket that will hold your transcribed call recordings.
-Region	Region Code	Launch
-US East (N. Virginia)	us-east-1	cfn/ssm.template 
+
+| **Region** | **Region Code** | **Launch** |
+| --- | --- | --- |
+| US East (N. Virginia) | us-east-1 | cfn/ssm.template |
+| --- | --- | --- |
 
 CloudFormation Launch Instructions (expand for details)
 
@@ -219,86 +222,85 @@ CloudFormation Launch Instructions (expand for details)
 
 Wait for the CREATE_COMPLETE status on your CloudFormation stack; you need to wait for it to finish before proceeding to Deployment Part-2.
 
-Key	Default Value	Description
-BulkUploadBucket	omni-lex-sentiment-bulk-upload	
+| **Key** | **Default Value** | **Description** |
+| --- | --- | --- |
+| BulkUploadBucket | omni-lex-sentiment-bulk-upload |
 S3 Bucket into which bulk call recordings and chat transaction logs can be dropped – AWS Step Functions execution required for processing.
-
-BulkUploadMaxDripRate	50	Maximum number of files that the bulk uploader will move to InputBucketName per iteration.
-BulkUploadMaxTranscribeJobs	250	
+ |
+| BulkUploadMaxDripRate | 50 | Maximum number of files that the bulk uploader will move to _ **InputBucketName** _per iteration. |
+| BulkUploadMaxTranscribeJobs | 250 |
 Maximum number of concurrent Amazon Transcribe jobs (executing or queuing) bulk upload will execute.
+ |
+| ComprehendLanguages |
 
-ComprehendLanguages	
-en | es | fr | de | it | pt |
-ar | hi | ja | ko | zh | zh-
-TW
-	
-Languages supported by Amazon Comprehend's standard calls, separated by "|"
-
-ContentRedactionLanguages	en-US	
-Languages supported by Transcribe's Content Redaction feature, separated by "|”
-
-ConversationLocation	America/Toronto	
-Name of the timezone location for the call source - this is the TZ database name from https://en.wikipedia.org /wiki/List_of_tz_database_time_zones
-
-EntityRecognizerEndpoint	undefined	
+en | es | fr | de | it | pt |ar | hi | ja | ko | zh | zh-TW
+ |
+Languages supported by Amazon Comprehend&#39;s standard calls, separated by &quot;|&quot;
+ |
+| ContentRedactionLanguages | en-US |
+Languages supported by Transcribe&#39;s Content Redaction feature, separated by &quot;|&quot;
+ |
+| ConversationLocation | America/Toronto |
+Name of the timezone location for the call source - this [is the](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[**TZ database name**](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[from](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[https://en.wikipedia.or](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[g](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[/wiki/List](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[of](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[tz](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[time](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[\_](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)[zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+ |
+| EntityRecognizerEndpoint | undefined |
 Name of the built custom entity recognizer for Amazon Comprehend (not including language suffix, e.g. -en). If one cannot be found then simple entity string matching is attempted.
+ |
+| EntityStringMap | simple-entity-list.csv |
 
-EntityStringMap	simple-entity-list.csv	
-Basename of a CSV file containing item/Entity maps for
-when not enough data is present for Comprehend Custom Entities (not including language suffix, e.g. -en).
-
-EntityThreshold	0.5	
+Basename of a CSV file containing item/Entity maps forwhen not enough data is present for Comprehend Custom Entities (not including language suffix, e.g. -en).
+ |
+| EntityThreshold | 0.5 |
 Confidence threshold where custom entity detection result is accepted.
-
-InputBucketAudioPlayback	mp3	
+ |
+| InputBucketAudioPlayback | mp3 |
 Folder that holds browser audio playback.
-
-InputBucketFailedTranscriptions	failedAudio	
+ |
+| InputBucketFailedTranscriptions | failedAudio |
 Folder that holds audio failed transcription files.
-
-InputBucketName	omni-lex-sentiment-source-audio	
+ |
+| InputBucketName | omni-lex-sentiment-source-audio |
 S3 Bucket into which audio files are delivered.
-
-InputBucketRawAudio	originalAudio	
+ |
+| InputBucketRawAudio | originalAudio |
 Folder that holds the raw call audio.
-
-MaxSpeakers	2	
+ |
+| MaxSpeakers | 2 |
 Maximum number of speakers that are expected on a call.
-
-MinSentimentNegative	0.4	
+ |
+| MinSentimentNegative | 0.4 |
 Minimum sentiment level required to declare a phrase as having negative sentiment.
-
-MinSentimentPositive	0.4	
+ |
+| MinSentimentPositive | 0.4 |
 Minimum sentiment level required to declare a phrase as having positive sentiment.
-
-OutputBucketName	omni-lex-sentiment-transcribe-output	
+ |
+| OutputBucketName | omni-lex-sentiment-transcribe-output |
 S3 Bucket into which Amazon Transcribe output files are delivered.
-
-OutputBucketParsedResults	parsedFiles	
+ |
+| OutputBucketParsedResults | parsedFiles |
 Folder within the output S3 Bucket into which parsed results are written.
-
-SpeakerNames	Agent | Caller	
-Default tags used for speaker names, separated by a “|”
-
-SpeakerSeparationType	Speaker	
-Separation mode for speakers, (speaker, channel, or auto).
-
-StepFunctionName	PostCallAnalyticsWorkflow	
+ |
+| SpeakerNames | Agent | Caller |
+Default tags used for speaker names, separated by a &quot;|&quot;
+ |
+| SpeakerSeparationType | Speaker |
+ ![Shape3](RackMultipart20211102-4-mlg76b_html_f82412c3af3a0c37.gif)Separation mode for speakers, (speaker, channel, or auto).
+ |
+| StepFunctionName | PostCallAnalyticsWorkflow |
 Name of AWS Step Functions sentiment analysis workflow.
-
-SupportFilesBucketName	omni-lex-sentiment-custom-source-files	
+ |
+| SupportFilesBucketName | omni-lex-sentiment-custom-source-files |
 S3 Bucket that hold supporting files, such as the file-based entity recognition mapping files.
-
-TranscribeAlternateLanguage	en-US	
+ |
+| TranscribeAlternateLanguage | en-US |
 Allows files delivered from a non-standard S3 Bucket to be based upon this language.
-
-TranscribeLanguages
-en-US	
-Language to be used for transcription - multiple entries separated by “|” will trigger Language Detection using those languages; if that fails for any reason then the first language in this list is used for transcription.
-
-VocabularyName	undefined	
+ |
+| ![Shape4](RackMultipart20211102-4-mlg76b_html_dcea502fcb8261bb.gif)TranscribeLanguages | en-US |
+Language to be used for transcription - multiple entries separated by &quot;|&quot; will trigger Language Detection using those languages; if that fails for any reason then the first language in this list is used for transcription.
+ |
+| VocabularyName | undefined |
 Name of the custom vocabulary to use for Amazon Transcribe (excluding language suffix).
-
+ |
 
 Deployment Part-2: Provision backend services by installing code dependencies, creating AWS Lambda layer, then packaging and deploying AWS CloudFormation template.
 
