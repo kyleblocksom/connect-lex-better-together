@@ -107,92 +107,72 @@ Import Your Amazon Lex Chatbot:
 
 <img width="495" alt="Screen Shot 2021-11-02 at 11 50 30 AM" src="https://user-images.githubusercontent.com/73256380/139926946-05fdbc84-31ff-42fb-9742-fa1dca0cf568.png">
 
-#### Configure Twilio SMS Integration with Your Amazon Lex Chatbot:
+Configure Twilio SMS Integration with Your Amazon Lex Chatbot:
 
-1. [Create Twilio SMS Account](https://www.twilio.com/console).
+  1. [Create Twilio SMS Account](https://www.twilio.com/console).
 
 To associate your Amazon Lex chatbot with your Twilio programmable SMS endpoint, we need to activate bot channel association in the Amazon Lex console. When the bot channel association has been activated, Amazon Lex returns a callback URL that we can use for Twilio SMS integration.
 
-2. Sign in to the [Amazon Lex Console](https://console.aws.amazon.com/lex/).
-3. Select _<your-bot-name>_.
-4. Navigate to the Channels tab.
-5. In the Channels section, select Twilio SMS.
-6. On the Twilio SMS page, provide the following information:
+  2. Sign in to the [Amazon Lex Console](https://console.aws.amazon.com/lex/).
+  3. Select _\<YOUR_BOUT_NAME\>_
+  4. Navigate to the **Channels** tab.
+  5. In the **Channels** section, select **Twilio SMS**.
+  6. On the **Twilio SMS** page, provide the following information:
 
-   - Channel name: LexTwilioAssociation
-   - Select "aws/lex" from KMS key.
-   - For Alias, select your bot alias.
-   - For Authentication Token, enter the AUTH TOKEN for your Twilio account.
-   - For Account SID, enter the ACCOUNT SID for your Twilio account.
+     - Channel name: LexTwilioAssociation
+     - Select "aws/lex" from **KMS key**.
+     - For **Alias**, select your bot alias.
+     - For **Authentication Token**, enter the AUTH TOKEN for your Twilio account.
+     - For **Account SID**, enter the ACCOUNT SID for your Twilio account.
 
-7. Select Activate.
+  7. Select **Activate**.
 
 The console creates the bot channel association and returns a Callback URL - Record this URL.
 
-8. On the [Twilio Console](https://www.twilio.com/console), navigate to Programmable Messaging.
-9. Select Messaging Services.
-10. Enter your Amazon Lex generated Callback URL into the Request URL field:
-11. Enter your Twilio-provided SMS number into the Sender Pool:
+  8. On the [Twilio Console](https://www.twilio.com/console), navigate to **Programmable Messaging**.
+  9. Select **Messaging Services**.
+  10. Enter your Amazon Lex generated Callback URL into the **Request URL** field:
+  
+<img width="1135" alt="Screen Shot 2021-11-02 at 12 02 35 PM" src="https://user-images.githubusercontent.com/73256380/139928478-c2d1ca7d-bd8d-4b3f-a785-05738e32f197.png">
 
- 
+  11. Enter your Twilio-provided SMS number into the **Sender Pool**:
 
-12.	Use your mobile phone to test the integration between Twilio SMS and your Amazon Lex chatbot by texting your Twilio-provided SMS number with a sample utterance.
+<img width="1116" alt="Screen Shot 2021-11-02 at 12 03 22 PM" src="https://user-images.githubusercontent.com/73256380/139928603-76f1a5f3-ff2a-40c8-8002-eea318867df4.png">
 
+  12. Use your mobile phone to test the integration between Twilio SMS and your Amazon Lex chatbot by texting your Twilio-provided SMS number with a sample utterance.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<img width="920" alt="Screen Shot 2021-11-02 at 12 04 00 PM" src="https://user-images.githubusercontent.com/73256380/139928680-5a6bb796-41e7-4379-8c14-d43859aab2c6.png">
 
 Configure Slack Integration with Your Amazon Lex Chatbot:
 
-1.	[Sign Up for Slack and Create Slack Team](https://slack.com/help/articles/212675257-Join-a-Slack-workspace). 
+  1. [Sign Up for Slack and Create Slack Team](https://slack.com/help/articles/212675257-Join-a-Slack-workspace).
 
 To associate your Amazon Lex chatbot with your Slack Application, we need to activate bot channel association in the Amazon Lex console. When the bot channel association has been activated, Amazon Lex returns a callback URL that we can use for Slack Application integration.
 
-2.	Sign in to the [Amazon Lex Console](https://console.aws.amazon.com/lex/).
-3.	Select <your-bot-name>.
-4.	Navigate to the Channels tab.
-5.	In the Channels section, select Twilio SMS.
-6.	On the Twilio SMS page, provide the following information:
+  2. [Create Slack application](https://docs.aws.amazon.com/lex/latest/dg/slack-bot-assoc-create-app.html).
+     - Record your Client ID, Client Secret, and Verification Token.
+  3. Sign in to the [Amazon Lex Console](https://console.aws.amazon.com/lex/).
+  4. Select _\<YOUR_BOUT_NAME\>_
+  5. Navigate to the **Channels** tab.
+  6. In the **Channels** section, select **Slack**.
+  7. On the **Slack** page, provide the following information:
 
-vi.	Channel name: LexTwilioAssociation
-vii.	Select "aws/lex" from KMS key.
-viii.	For Alias, select your bot alias.
-ix.	For Authentication Token, enter the AUTH TOKEN for your Twilio account.
-x.	For Account SID, enter the ACCOUNT SID for your Twilio account.
+     - Channel name: LexSlackAssociation
+     - Select "aws/lex" from **KMS key**.
+     - For **Alias**, select your bot alias.
+     - For **Client Id**, enter the Client ID you recorded in Step-2.
+     - For **Client Secret**, enter the Client Secret you recorded in Step-2.
+     - For **Verification Token**, enter the Verification Token you recorded in Step-2.
 
-7.	Select Activate.
+  8.  Select **Activate**.
+  9.  [Complete Slack application configuration](https://docs.aws.amazon.com/lex/latest/dg/slack-bot-back-in-slack-console.html).
+  10. [Install your Slack application](https://docs.aws.amazon.com/lex/latest/dg/slack-bot-test.html) and use your Slack client to test the integration between Slack and your Amazon Lex chatbot by texting your Twilio-provided SMS number with a sample utterance.
 
- 
+<img width="1265" alt="Screen Shot 2021-11-02 at 12 18 16 PM" src="https://user-images.githubusercontent.com/73256380/139930521-104eba07-b4e4-4c61-bcbe-44e1bf54b7e6.png">
 
+#### Customer Sentiment Analysis User Interface Overview:
 
-Customer Sentiment Analysis User Interface Overview:
-
-Once you navigate to the Mortgage Lender/Retail Bank’s customer sentiment analysis dashboard, you will see the below home screen with a sortable list of your Amazon Connect call recordings and Amazon Lex transaction logs. Selecting one of the call recordings or transaction logs leads you to the subsequent screenshot which shows the interaction metadata, language used, average and trending caller and agent sentiment, call or chat duration, and a graph of caller and agent sentiment throughout the interaction. Let’s get started with our simple 3-step AWS CloudFormation deployment process!
-
- 
-
- 
+###### Once you navigate to the Mortgage Lender/Retail Bank’s customer sentiment analysis dashboard, you will see the below home screen with a sortable list of your Amazon Connect call recordings and Amazon Lex transaction logs. Selecting one of the call recordings or transaction logs leads you to the subsequent screenshot which shows the interaction metadata, language used, average and trending caller and agent sentiment, call or chat duration, and a graph of caller and agent sentiment throughout the interaction. Let’s get started with our simple 3-step AWS CloudFormation deployment process!
 
 3-Part Customer Sentiment Analysis Deployment Process:
 	 
