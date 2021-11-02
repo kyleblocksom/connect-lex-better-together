@@ -311,4 +311,6 @@ aws cloudformation deploy \
 
 Your implementation is complete! You successfully deployed and configured the below architecture:
 
+<img width="1792" alt="Screen Shot 2021-11-02 at 12 27 08 PM" src="https://user-images.githubusercontent.com/73256380/139935830-4f7a8e13-a8b5-42bb-8fd8-669b67b88e83.png">
+
  
