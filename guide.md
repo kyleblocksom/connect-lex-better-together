@@ -51,7 +51,6 @@ Allow CloudFormation to launch your resources in the background; you do not need
 #### Amazon Lex Concepts:
 
 - ###### Intent: An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create a bot that orders pizza and drinks. For each intent, you provide the following required information:
- 
   - ###### Intent name: A descriptive name for the intent. For example, OrderPizza. Intent names must be unique within your account.
 
   - ###### Sample utterances: How a user might convey the intent. For example, a user might say "Can I order a pizza please" or "I want to order a pizza".
