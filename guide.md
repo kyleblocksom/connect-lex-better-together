@@ -51,6 +51,7 @@ Allow CloudFormation to launch your resources in the background; you do not need
 #### Amazon Lex Concepts:
 
 - ###### Intent: An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create a bot that orders pizza and drinks. For each intent, you provide the following required information:
+  
   - ###### Intent name: A descriptive name for the intent. For example, OrderPizza. Intent names must be unique within your account.
 
   - ###### Sample utterances: How a user might convey the intent. For example, a user might say "Can I order a pizza please" or "I want to order a pizza".
@@ -76,65 +77,56 @@ Import Your Amazon Lex Chatbot:
 2.	Select Browse and choose the omni-lex.zip file.
 3.	Select the newly created OmniLex under Bots.
 4.	Select FAQ under Intents on the left menu and ensure the Lex-Kendra-Index is selected under Amazon Kendra query. Also, ensure your Response section matches the below:
-
- 
+![1](https://user-images.githubusercontent.com/73256380/139917842-a24df34c-8a7e-4229-8c0d-5008e5508473.png) 
 
 5. Select MakePayment under Intents on the left menu:
 
    a. Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
-b.	Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest.
+   b. Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest.
 
-6.	Select OpenAccount under Intents on the left menu: 
+6. Select OpenAccount under Intents on the left menu: 
 
-a.	Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
+   a. Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
-b.	Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest.
+   b. Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest.
 
-7.	Select ProvideAccountDetails under Intents on the left menu: 
+7. Select ProvideAccountDetails under Intents on the left menu: 
 
-a.	Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
+   a. Under Lambda initialization and validation, select Initialization and validation code hook then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown. The version or alias should be set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
-8.	Select VerifyIdentity under Intents on the left menu: 
+8. Select VerifyIdentity under Intents on the left menu: 
 
-a.	Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
+   a. Under Fulfillment, select AWS Lambda function then choose your Lambda function <Stack-name>-OmniLexHandler from the dropdown with the version or alias set to Latest. Select OK when prompted to give Amazon Lex permission to invoke your Lambda Function.
 
+9. Select Build to assemble your chatbot, then test your chatbot using the dialogue box. 
 
-9.	Select Build to assemble your chatbot, then test your chatbot using the dialogue box. 
+#### Configure Twilio SMS Integration with Your Amazon Lex Chatbot:
 
- 
- 
-
-Configure Twilio SMS Integration with Your Amazon Lex Chatbot:
-
-1.	Create Twilio SMS Account.
+1. Create Twilio SMS Account.
 
 To associate your Amazon Lex chatbot with your Twilio programmable SMS endpoint, we need to activate bot channel association in the Amazon Lex console. When the bot channel association has been activated, Amazon Lex returns a callback URL that we can use for Twilio SMS integration.
 
-2.	Sign in to the Amazon Lex Console.
-3.	Select <your-bot-name>.
-4.	Navigate to the Channels tab.
-5.	In the Channels section, select Twilio SMS.
-6.	On the Twilio SMS page, provide the following information:
+2. Sign in to the Amazon Lex Console.
+3. Select <your-bot-name>.
+4. Navigate to the Channels tab.
+5. In the Channels section, select Twilio SMS.
+6. On the Twilio SMS page, provide the following information:
 
-i.	Channel name: LexTwilioAssociation
-ii.	Select "aws/lex" from KMS key.
-iii.	For Alias, select your bot alias.
-iv.	For Authentication Token, enter the AUTH TOKEN for your Twilio account.
-v.	For Account SID, enter the ACCOUNT SID for your Twilio account.
+   a. Channel name: LexTwilioAssociation
+   b. Select "aws/lex" from KMS key.
+   c. For Alias, select your bot alias.
+   d. For Authentication Token, enter the AUTH TOKEN for your Twilio account.
+   e. For Account SID, enter the ACCOUNT SID for your Twilio account.
 
-7.	Select Activate.
+7. Select Activate.
 
- 
 The console creates the bot channel association and returns a Callback URL - Record this URL.
 
-8.	On the Twilio Console, navigate to Programmable Messaging.
-9.	Select Messaging Services.
-10.	Enter your Amazon Lex generated Callback URL into the Request URL field:
-
- 
-
-11.	Enter your Twilio-provided SMS number into the Sender Pool:
+8. On the Twilio Console, navigate to Programmable Messaging.
+9. Select Messaging Services.
+10. Enter your Amazon Lex generated Callback URL into the Request URL field:
+11. Enter your Twilio-provided SMS number into the Sender Pool:
 
  
 
