@@ -32,8 +32,10 @@
 
 ###### In Part-1 of your application architecture, you will build an Amazon Lex chatbot that understands customers' speech and text inputs. Your chatbot is embedded within a website created using AWS Amplify which is connected to the source repository that hosts our HTML, JavaScript, and CSS code. Data about available plans and users’ chosen plans are persisted in Amazon DynamoDB. AWS Lambda functions are triggered by Amazon Lex to execute business logic and interact with the database layer to query pertinent customer data and fulfill customer requests. Amazon Kendra also allows our chatbot to query against an indexed FAQ document so customers and call center agents can quickly find answers. You can also connect the Amazon Lex chatbot with Twilio SMS and Amazon Connect, which allows users to interact with your chatbot over SMS text messages and call your customer service number and interact with Amazon Lex’s Interactive Voice Response (IVR).
 
-Region	Region Code	Launch
-US East (N. Virginia)	us-east-1	omni-lex.yaml
+| **Region** | **Region Code** | **Launch** |
+| --- | --- | --- |
+| US East (N. Virginia) | us-east-1 | omni-lex.yaml |
+| --- | --- | --- |
 
 #### AWS CloudFormation Launch Instructions:
 
@@ -50,7 +52,7 @@ Allow CloudFormation to launch your resources in the background; you do not need
 
 #### Amazon Lex Concepts:
 
-- ###### Intent: An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create a bot that orders pizza and drinks. For each intent, you provide the following required information:
+- ###### **Intent**: An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create a bot that orders pizza and drinks. For each intent, you provide the following required information:
   
   - ###### Intent name: A descriptive name for the intent. For example, OrderPizza. Intent names must be unique within your account.
 
