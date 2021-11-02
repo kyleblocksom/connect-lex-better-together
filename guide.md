@@ -2,21 +2,19 @@
 
 ###### Deliver Omnichannel Customer Experiences with Interactive Voice Response (IVR) Enabled Contact Centers and Natural Language Processing (NLP) Chatbots – All Backed by Customer Sentiment Analysis
 
- 
-
 When is the last time you, as a customer, consumed a service or purchased a product? Did you interact with the service or product digitally or in-person? What if you had the flexibility to engage through multiple preferred channels (voice calls, digital chatbots, web-based interaction)? Your modern business is expected to deliver an omnichannel customer experience that unifies customer interactions across multiple channels into one seamless customer journey. Within Banking and Mortgage verticals, an omnichannel customer experience entails users availing all banking operations from a website, mobile application, physical branch location, call center, and other available channels, while context is maintained across all customer associations.
 
 Iterating further on the seamless customer journey concept, you can derive customer sentiment from customer interconnections across your platforms. By identifying and extracting the relevant call and chat logs, website dwell times, and other pertinent source material, you develop a deep understanding of customer sentiment towards your services, products, employees, and more broadly, your brand, allowing you to iteratively improve the overall experience for your customers.
 
 With Amazon Connect and Amazon Lex, you are able to offer your customers the flexible user experience they desire while maintaining a holistic view of their cross-platform engagement. By enabling customers with a self-service capability, you maximize the productivity of your call agents and skills-based work types while also minimizing the operational costs associated with human workforce supply.
 
-Omnichannel User Interface Overview:
+###### Omnichannel User Interface Overview:
 
 Once you navigate to the Mortgage Lender/Retail Bank’s AWS Amplify-powered website, you will see the below home screen with your Amazon Lex chatbot embedded within the bottom-right of your screen. The Amazon Lex chatbot then prompts the user for their 4-digit PIN before beginning to fulfill user intents. Let’s get started by building our Amazon Lex chatbot! 
 
-
+<img width="1792" alt="Screen Shot 2021-11-02 at 9 51 06 AM" src="https://user-images.githubusercontent.com/73256380/139910925-c61977a5-1980-4360-9bb4-cb56a1f1718d.png">
  
-2-Part Omnichannel Deployment Process:
+###### 2-Part Omnichannel Deployment Process:
 	 
 1.	Provision backend services through AWS CloudFormation (AWS Amplify, Amazon DynamoDB, Amazon Kendra, AWS Lambda, and Amazon S3).
 
@@ -24,17 +22,18 @@ Once you navigate to the Mortgage Lender/Retail Bank’s AWS Amplify-powered web
 
 The below architecture diagram illustrates your resultant solution architecture following the above deployment process:
 
- 
+ <img width="1792" alt="Screen Shot 2021-11-02 at 10 00 08 AM" src="https://user-images.githubusercontent.com/73256380/139911637-0a8c834f-2174-4bf4-b067-87c08be00bef.png">
 
-Deployment Part-1: Provisioning backend services through AWS CloudFormation 
-(AWS Amplify, Amazon DynamoDB, Amazon Kendra, and AWS Lambda).
+###### Deployment Part-1: Provisioning backend services through AWS CloudFormation 
+> (AWS Amplify, Amazon DynamoDB, Amazon Kendra, and AWS Lambda).
 
-What are you deploying?
+** What are you deploying? **
 In Part-1 of your application architecture, you will build an Amazon Lex chatbot that understands customers' speech and text inputs. Your chatbot is embedded within a website created using AWS Amplify which is connected to the source repository that hosts our HTML, JavaScript, and CSS code. Data about available plans and users’ chosen plans are persisted in Amazon DynamoDB. AWS Lambda functions are triggered by Amazon Lex to execute business logic and interact with the database layer to query pertinent customer data and fulfill customer requests. Amazon Kendra also allows our chatbot to query against an indexed FAQ document so customers and call center agents can quickly find answers. You can also connect the Amazon Lex chatbot with Twilio SMS and Amazon Connect, which allows users to interact with your chatbot over SMS text messages and call your customer service number and interact with Amazon Lex’s Interactive Voice Response (IVR).
-Region	Region Code	Launch
+
+** Region	Region Code	Launch **
 US East (N. Virginia)	us-east-1	omni-lex.yaml
 
-CloudFormation Launch Instructions:
+** AWS CloudFormation Launch Instructions: **
 
 1.	Select the Launch Stack link above.
 2.	Select Next on the Specify template page.
@@ -45,9 +44,9 @@ CloudFormation Launch Instructions:
 
 Allow CloudFormation to launch your resources in the background; you do not need to wait for it to finish before proceeding to Deployment Part-2.
 
-Deployment Part-2: Creating your Amazon Lex bot with Amazon Connect, Twilio SMS, and Slack integration through step-by-step guidance.
+###### Deployment Part-2: Creating your Amazon Lex bot with Amazon Connect, Twilio SMS, and Slack integration through step-by-step guidance.
 
-Amazon Lex Concepts:
+** Amazon Lex Concepts: **
 
 •	Intent: An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create a bot that orders pizza and drinks. For each intent, you provide the following required information:
  
@@ -68,7 +67,7 @@ o	Slot type: Each slot has a type. You can create your custom slot types or use 
 
 Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered. For more information, see Built-in Intents and Slot Types.
 
-Amazon Lex Implementation:
+** Amazon Lex Implementation: **
 
 Import Your Amazon Lex Chatbot:
 
